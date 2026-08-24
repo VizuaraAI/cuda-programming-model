@@ -74,8 +74,8 @@ figcaption{font-size:15.5px; color:var(--muted); line-height:1.5; margin-top:12p
 figcaption b{color:var(--ink); font-weight:600}
 .diagram{background:#fff; border:1px solid var(--rule); border-radius:6px; padding:10px 6px}
 @media (min-width:1150px){
-  figure.wide{width:880px; margin-left:-100px}
-  figure.wide figcaption{padding:0 100px 0 100px}
+  figure.wide{width:820px; margin-left:-140px}
+  figure.wide figcaption{padding:0 140px 0 140px}
 }
 
 .snref{color:var(--accent); font-size:.72em; vertical-align:super; font-family:var(--mono);
@@ -2184,6 +2184,14 @@ compute. Each of these earns its keep only after the model above feels boring.</
   <li><strong>Keep the <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/">CUDA C++
   Programming Guide</a></strong> open as the reference for every constant this post quoted.</li>
 </ol>
+
+<p><strong>There is now a part two.</strong>
+<a href="https://vizuaraai.github.io/cuda-matmul/">How a Matmul Kernel Gets Fast</a> takes
+everything above and puts it to work, rewriting one matrix-multiply kernel ten times, from 1.3% of
+the hardware to 93.7%, with every byte and every multiply accounted for. Coalescing, shared-memory
+tiling, the outer-product trick that lets one thread do 64 multiply-adds from 16 loads, occupancy,
+vectorized loads, autotuning and warptiling. It is the natural next step from here, and it assumes
+exactly this post and nothing more.</p>
 
 <p>Jones ends his talk by saying that CUDA is the way it is because of the laws of physics. After
 an hour with one dog and one die, the claim should feel less like a slogan: every rule we met, 32-wide
